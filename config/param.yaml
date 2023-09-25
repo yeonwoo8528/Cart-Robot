@@ -1,0 +1,72 @@
+# %Simulation
+# true -->Using Gazebo World / false -->Work in Real Worlds
+is_simulation: false
+
+# %Clustering Node Parameter
+min_pts: 12.0
+min_eps: 0.25
+window_boundary: 3.5
+
+# %Tracking Node Parameter
+dist_threshold: 1.0
+min_range: 0.5
+wait_time: 3.0
+stop_time: 5.0
+
+# --State Transition Matrix (4x4)
+A: [1,      0,      0.0833, 0,
+    0,      1,      0,      0.0833,
+    0,      0,      1,      0,
+    0,      0,      0,      1]
+
+# --Observation Marix (2x4)
+H: [1,      0,      0,      0,
+    0,      1,      0,      0]
+
+# --Measurment Error Covariance Matrix (2x2)
+R: [0.0002, 0,
+    0,      0.0002]
+
+# --State Covariance Matrix (4x4)
+P: [0,      0,      0,      0,
+    0,      0,      0,      0,
+    0,      0,      0,      0,
+    0,      0,      0,      0]
+
+# --Process Noise Matrix (4x4)
+Q: [0,      0,      0,      0,
+    0,      0,      0,      0,
+    0,      0,      0.01,   0,
+    0,      0,      0,      0.01]
+
+# %Avoiding Node Parameter
+# -- Kp_rel: Repulsive Gain, min_dist: minimum distance to detact object
+Kp_rel: 0.0005
+Kp_att : 1.3
+min_dist: 1
+u_k: 0.1
+avoid_time: 6.0
+target_r: 0.35
+
+# --Hardware System for Accompany System
+# true -->Using Advanced Accompany System / false -->Using Accompany System
+isadvanced: false
+wheel_radius: 0.08 # 0.08 (in simul) 0.085 (in real)
+wheel_interval: 0.4 # 0.4 (in simul) 0.4 (in real)
+base_range: 0.6 # 0.6 (in simul) 0.39 (in real)
+weight: 15 # 15 (in simul) 40 (in real)
+
+# Accompany System mode
+# true -->Using Line Accompany System / false -->Using Accompany System
+mode: false
+
+# --PID Gain Tuning
+max_err_x: 20
+max_err_y: 20
+max_err_r: 20
+kp_x: 1.5 # 1.5 (in simul) 1.2 (in real)
+kp_y: 1.5 # 1.5 (in simul) 1.2 (in real)
+kp_r: 1.5 # 1.5 (in simul) 1.2 (in real)
+ki_x: 0.03 # 0.03 (in simul) 0.02 (in real)
+ki_y: 0.03 # 0.03 (in simul) 0.02 (in real)
+ki_r: 0.03 # 0.03 (in simul) 0.02 (in real)

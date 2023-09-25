@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam command="load" file="$(find cartbot)/config/param.yaml" />
+
+    <node pkg="cartbot" type="clustering_node" name="clustering_node" output="screen" />
+
+    <node pkg="cartbot" type="tracking_node" name="tracking_node" output="screen" />
+
+    <node pkg="cartbot" type="avoiding_node" name="avoiding_node" output="screen" />
+
+    <node pkg="cartbot" type="rosserial_node" name="rosserial_node" output="screen" />
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find cartbot)/rviz/run.rviz" output = "screen"/>
+</launch>
